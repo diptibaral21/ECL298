@@ -1,7 +1,9 @@
 # ECL298
-This repository is to document my works from ECL298 class, winter quarter 2026 with Dr. Robert Hijmans. 
 
-HW#1: R script that shows a form of regression and k-fold cross-validation 
+## This repository is to document my works from ECL298 class, winter quarter 2026 with Dr. Robert Hijmans. 
+
+
+### 1. HW#1: R script that shows a form of regression and k-fold cross-validation 
 
 -- For this HW I am using the dataset : College from ISLR package that has information related to a large number of US Colleges from the 1995 issue of US News and World Report. I am builiding a logistic regreesion model to predict whether a ceratin school is private or not using the following data from College Dataset: Apps, Top10perc, F.Undergrad, Outstate, Room.Board, Books, Personal, PhD, Terminal, S.F.Ratio, Expend student, and Grad.Rate. 
 
@@ -25,3 +27,44 @@ A data frame with 777 observations on the following 18 variables.
 - perc.alumni: Pct. alumni who donate 
 - Expend: Instructional expenditure per student 
 - Grad.Rate: Graduation rate
+
+### 2. Capstone Project 
+
+#### Introduction
+
+For my capstone project I will evaluate how the seven stress parameters unique to different rice growing stages explain yield variability in California’s Sacramento Valley using historical climate and yield data.
+
+#### Data 
+
+#### 2.1	County Level Yield Data in California
+
+The rice yields are from the United States Department of Agriculture (USDA) National Agricultural Statistics Service (NASS) which provides county-level crop statistics from 1980 to present. In California, rice is growin in 9 countries in Sacramento Valley: 
+
+#### 2.2	Climate Data
+
+The climate data are obtained from high-resolution gridded dataset called gridMET which provides climate variables at a spatial resolution of 4km covering the contiguous United States from 1979 to present. 
+
+#### 2.3	Rice Cropland Layer
+
+We use the Cropland Data Layer (CDL) which is a 30m resolution raster dataset with geographical locations of croplands in contiguous US. We use this dataset to identify the rice growing grid cells and calculate county-level average climate indices.  
+
+#### 2.4	Rice Phenology 
+
+Rice growth stages are identified using Growing Degree Days Model, which has been tested to be accurate for California Rice System. Using GDD model, rice growth stages such as Booting, Flowering and Grainfill are determined. 
+
+#### 2.5 Temperature Indices (TI)
+
+Temperature and Stress Indices are calculated for the three rice growth stages and for entire growth season. The following are the temperature variables and their naming convention
+
+###     Statistical Modeling
+
+I will use lasso regression model for this analysis because lasso regression can mitigate the problem of multicollinearity in the variables. I will train a total of 100 models over the period of 1979 to 2023 by selecting a subset of 70% of observational data and evaluating on the remaining 30%. The lasso regression model is as shown below: 
+
+Y_c{\left(t\right)}=F_c+\gamma_ct+\sum_{i}^{N}\left[\alphaTI_c^i{\left(t\right)}+\betaTI_c^i{\left(t\right)^2}\right]+\varepsilon_c{\left(t\right)}
+subscripts c, i, and t  indicate county, Temperature Indices, and year, respectively;   
+
+Y_c{\left(t\right)}\ is the rice yield for county  and year ;  
+F_c\  refers to the county-level fixed effects representing average yield differences between counties;  
+\gamma_ct\ represents county-level temporal trends that cannot be explained by climate variations;
+\alpha\ and  \beta\  are the linear and quadratic coefficients; is the error term.
+
