@@ -60,11 +60,19 @@ Temperature and Stress Indices are calculated for the three rice growth stages a
 
 I will use lasso regression model for this analysis because lasso regression can mitigate the problem of multicollinearity in the variables. I will train a total of 100 models over the period of 1979 to 2023 by selecting a subset of 70% of observational data and evaluating on the remaining 30%. The lasso regression model is as shown below: 
 
-Y_c{\left(t\right)}=F_c+\gamma_ct+\sum_{i}^{N}\left[\alphaTI_c^i{\left(t\right)}+\betaTI_c^i{\left(t\right)^2}\right]+\varepsilon_c{\left(t\right)}
-subscripts c, i, and t  indicate county, Temperature Indices, and year, respectively;   
+$$
+Y_c(t) = F_c + \gamma_c t + \sum_{i=1}^{N}
+\left[
+\alpha \, TI_c^i(t) + \beta \, TI_c^i(t)^2
+\right]
++ \varepsilon_c(t)
+$$
 
-Y_c{\left(t\right)}\ is the rice yield for county  and year ;  
-F_c\  refers to the county-level fixed effects representing average yield differences between counties;  
-\gamma_ct\ represents county-level temporal trends that cannot be explained by climate variations;
-\alpha\ and  \beta\  are the linear and quadratic coefficients; is the error term.
+where subscripts $c$, $i$, and $t$ indicate county, temperature indices, and year, respectively.  
+$Y_c(t)$ is the rice yield for county $c$ in year $t$.  
+$F_c$ refers to county-level fixed effects representing average yield differences between counties.  
+$\gamma_c t$ represents county-level temporal trends not explained by climate variations.  
+$\alpha$ and $\beta$ are the linear and quadratic coefficients, respectively.  
+$\varepsilon_c(t)$ is the error term.
+
 
