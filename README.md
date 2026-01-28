@@ -30,35 +30,35 @@ A data frame with 777 observations on the following 18 variables.
 
 ### 2. Capstone Project 
 
-#### Introduction
+#### A. Introduction
 
-For my capstone project I will evaluate how the seven stress parameters unique to different rice growing stages explain yield variability in California’s Sacramento Valley using historical climate and yield data.
+For this capstone project we will evaluate how the seven stress parameters unique to different rice growing stages explain yield variability in California’s Sacramento Valley using historical climate and yield data.
 
-#### Data 
+#### B. Data 
 
-#### 2.1	County Level Yield Data in California
+#### a. County Level Yield Data in California
 
 The rice yields are from the United States Department of Agriculture (USDA) National Agricultural Statistics Service (NASS) which provides county-level crop statistics from 1980 to present. In California, rice is growin in 9 countries in Sacramento Valley: 
 
-#### 2.2	Climate Data
+#### b. Climate Data
 
 The climate data are obtained from high-resolution gridded dataset called gridMET which provides climate variables at a spatial resolution of 4km covering the contiguous United States from 1979 to present. 
 
-#### 2.3	Rice Cropland Layer
+#### c. Rice Cropland Layer
 
 We use the Cropland Data Layer (CDL) which is a 30m resolution raster dataset with geographical locations of croplands in contiguous US. We use this dataset to identify the rice growing grid cells and calculate county-level average climate indices.  
 
-#### 2.4	Rice Phenology 
+#### d. Rice Phenology 
 
 Rice growth stages are identified using Growing Degree Days Model, which has been tested to be accurate for California Rice System. Using GDD model, rice growth stages such as Booting, Flowering and Grainfill are determined. 
 
-#### 2.5 Temperature Indices (TI)
+#### e. Temperature Indices (TI)
 
 Temperature and Stress Indices are calculated for the three rice growth stages and for entire growth season. The following are the temperature variables and their naming convention
 
 ###     Statistical Modeling
 
-I will use lasso regression model for this analysis because lasso regression can mitigate the problem of multicollinearity in the variables. I will train a total of 100 models over the period of 1979 to 2023 by selecting a subset of 70% of observational data and evaluating on the remaining 30%. The lasso regression model is as shown below: 
+We use lasso regression model for this analysis because lasso regression can mitigate the problem of multicollinearity in the variables. We train a total of 100 models over the period of 1979 to 2023 by selecting a subset of 70% of observational data and evaluating on the remaining 30%. The lasso regression model is as shown below: 
 
 $$
 Y_c(t) = F_c + \gamma_c t
